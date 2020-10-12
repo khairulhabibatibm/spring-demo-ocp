@@ -25,6 +25,7 @@ public class DemoOcpApplication {
 			.authorizeRequests()
 			.antMatchers("/index.html", "/", "/home", "/login","/api").permitAll();
 		http.csrf().disable();
+		http.cors().disable();
 		}
   	}
 

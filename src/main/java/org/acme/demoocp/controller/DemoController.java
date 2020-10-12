@@ -24,7 +24,7 @@ public class DemoController{
         return service.getAll();
     }
 
-    @CrossOrigin(origins = "http://localhost:8082")
+    // @CrossOrigin(origins = "http://localhost:8082")
     @PostMapping("/demo")
     public ModelResponse add(DemoInput tutorial){
         System.out.println("in add demo");
