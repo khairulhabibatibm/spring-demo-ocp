@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController()
 public class DemoController{
 
@@ -25,6 +24,7 @@ public class DemoController{
     }
 
     @PostMapping("/demo")
+    @CrossOrigin(origins = "*")
     public ModelResponse add(DemoInput tutorial){
         System.out.println("in add demo");
         String result = service.addDemo(tutorial);
