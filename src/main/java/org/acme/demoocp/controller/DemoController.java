@@ -23,8 +23,8 @@ public class DemoController{
         return service.getAll();
     }
 
-    @PostMapping("/demo")
     @CrossOrigin(origins = "*")
+    @PostMapping("/demo")
     public ModelResponse add(DemoInput tutorial){
         System.out.println("in add demo");
         String result = service.addDemo(tutorial);
