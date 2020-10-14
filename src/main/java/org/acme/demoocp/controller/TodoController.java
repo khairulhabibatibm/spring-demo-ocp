@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "*",allowedHeaders = "*")
 @RestController()
 public class TodoController{
 
     @Autowired
     private TodoService service;
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/todo")
     public ListInputResponse getAll(){
         System.out.println("in getAll(): ");
@@ -28,6 +28,7 @@ public class TodoController{
         return response;
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/todo")
     public ModelResponse add(@RequestBody TodoInput tutorial){
         System.out.println("in add(): " + tutorial.getDescription());
