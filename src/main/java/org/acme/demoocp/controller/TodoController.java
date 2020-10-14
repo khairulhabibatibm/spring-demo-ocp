@@ -22,7 +22,7 @@ public class TodoController{
 
     @GetMapping("/todo")
     public ListInputResponse getAll(){
-        System.out.println("in get demo");
+        System.out.println("getAll(): ");
         ListInputResponse response = new ListInputResponse();
         response.setTodos(service.getAll());
         return response;
@@ -30,7 +30,7 @@ public class TodoController{
 
     @PostMapping("/todo")
     public ModelResponse add(@RequestBody TodoInput tutorial){
-        System.out.println("in add demo > " + tutorial.getDescription());
+        System.out.println("add(): " + tutorial.getDescription());
         String result = service.addTodo(tutorial);
         ModelResponse response = new ModelResponse();
         response.setId(result);
