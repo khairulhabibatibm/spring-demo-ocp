@@ -3,6 +3,7 @@ package org.acme.demoocp.controller;
 import java.util.List;
 
 import org.acme.demoocp.model.TodoInput;
+import org.acme.demoocp.model.ListInputResponse;
 import org.acme.demoocp.model.ModelResponse;
 import org.acme.demoocp.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,11 @@ public class TodoController{
     private TodoService service;
 
     @GetMapping("/todo")
-    public List<TodoInput> getAll(){
+    public ListInputResponse getAll(){
         System.out.println("in get demo");
-        return service.getAll();
+        ListInputResponse response = new ListInputResponse();
+        response.setTodos(service.getAll());
+        return response;
     }
 
     @PostMapping("/todo")
