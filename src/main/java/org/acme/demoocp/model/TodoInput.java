@@ -7,6 +7,7 @@ public class TodoInput {
     
     @Setter @Getter private String description;
     @Setter @Getter private Boolean completed;
+    @Setter @Getter private String comment;
 
     public TodoInput(){
 

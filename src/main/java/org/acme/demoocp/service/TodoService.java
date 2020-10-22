@@ -36,6 +36,7 @@ public class TodoService {
                 System.out.println("entity id > " + entity.getId());
                 todo.setDescription(entity.getDescription());
                 todo.setCompleted(entity.getCompleted());
+                todo.setComment("Default Comment");
                 response.add(todo);
             }
             return response;    
