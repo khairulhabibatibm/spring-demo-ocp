@@ -22,7 +22,7 @@ public class TodoController{
     @CrossOrigin(origins = "*")
     @GetMapping("/todo")
     public ListInputResponse getAll(){
-        System.out.println("in getAll() -- 4: ");
+        System.out.println("in get todo list: ");
         ListInputResponse response = new ListInputResponse();
         response.setTodos(service.getAll());
         return response;
@@ -31,7 +31,7 @@ public class TodoController{
     @CrossOrigin(origins = "*")
     @PostMapping("/todo")
     public ModelResponse add(@RequestBody TodoInput tutorial){
-        System.out.println("in add() -- 4: " + tutorial.getDescription());
+        System.out.println("adding todo entity: " + tutorial.getDescription());
         String result = service.addTodo(tutorial);
         ModelResponse response = new ModelResponse();
         response.setId(result);
