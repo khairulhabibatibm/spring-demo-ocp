@@ -29,6 +29,12 @@ ARG PROXY_PORT=
 
 COPY src ./src
 
+ARG DB_HOST
+ARG DB_USER
+ARG DB_PASS
+ARG DB_NAME
+ARG DB_PORT
+
 RUN mvn -B clean package \
         -DproxySet=${PROXY_SET} \
         -DproxyHost=${PROXY_HOST} \
