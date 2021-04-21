@@ -66,9 +66,9 @@ spec:
                 name: {{ default "jaeger-config" .Values.jaegerConfigName }}
                 optional: true
             - configMapRef:
-                name: hotel-db-props
+                name: backend-db-props
             - secretRef:
-                name: hotel-db-pass
+                name: backend-db-pass
             - secretRef:
                 name: {{ default "jaeger-access" .Values.jaegerSecretName }}
                 optional: true
