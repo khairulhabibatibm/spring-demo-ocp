@@ -10,6 +10,12 @@ ARG PROXY_SET=false
 ARG PROXY_HOST=
 ARG PROXY_PORT=
 
+ARG DB_HOST
+ARG DB_USER
+ARG DB_PASS
+ARG DB_NAME
+ARG DB_PORT
+
 COPY pom.xml ./
 
 RUN mvn -B dependency:go-offline \
@@ -35,7 +41,7 @@ ARG DB_PASS
 ARG DB_NAME
 ARG DB_PORT
 
-RUN mvn -B clean package \
+RUN mvn -B clean package -DskipTests \
         -DproxySet=${PROXY_SET} \
         -DproxyHost=${PROXY_HOST} \
         -DproxyPort=${PROXY_PORT}
