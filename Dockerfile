@@ -14,5 +14,6 @@ ENV DB_USER=${DB_USER}
 ENV DB_PASS=${DB_PASS}
 
 COPY target/demo-ocp-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 8080
 ENTRYPOINT ["java","-jar","/app.jar"]
 #############################################################################################
