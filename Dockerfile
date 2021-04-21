@@ -35,13 +35,19 @@ ARG PROXY_PORT=
 
 COPY src ./src
 
-ARG DB_HOST
-ARG DB_USER
-ARG DB_PASS
-ARG DB_NAME
-ARG DB_PORT
+ARG ARG_DB_HOST
+ARG ARG_DB_USER
+ARG ARG_DB_PASS
+ARG ARG_DB_NAME
+ARG ARG_DB_PORT
 
-RUN mvn -B clean package -DskipTests \
+ENV DB_HOST=${ARG_DB_HOST}
+ENV DB_USER=${ARG_DB_USER}
+ENV DB_PASS=${ARG_DB_PASS}
+ENV DB_NAME=${ARG_DB_NAME}
+ENV DB_PORT=${ARG_DB_PORT}
+
+RUN mvn -B clean package \
         -DproxySet=${PROXY_SET} \
         -DproxyHost=${PROXY_HOST} \
         -DproxyPort=${PROXY_PORT}
@@ -52,7 +58,7 @@ RUN mvn -B clean package -DskipTests \
 #############################################################################################
 FROM ${RUNTIME_IMAGE}
 
-COPY --from=build /app/target/demo-ocp-*.jar /app/service.jar
+COPY --from=build /app/target/demo-ocp-0.0.1-SNAPSHOT.jar /app/service.jar
 
 CMD ["/usr/bin/java", "-jar", "/app/service.jar"]
 #############################################################################################
